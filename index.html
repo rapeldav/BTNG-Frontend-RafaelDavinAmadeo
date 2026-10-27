@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dream Car, showroom mobil dengan berbagai pilihan kendaraan.">
+  <title>Dream Car | Showroom Mobil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar container">
+      <a href="#beranda" class="logo">DREAM <span>CAR.</span></a>
+
+      <div class="nav-menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#koleksi">Koleksi Mobil</a>
+        <a href="#tentang">Tentang</a>
+        <button id="themeToggle" type="button">☾ Tema</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-content container">
+        <p class="subtitle">WELCOME TO DREAM CAR</p>
+        <h1>Temukan Mobil<br><span>Impianmu.</span></h1>
+        <p>
+          Pilihan mobil untuk menemani setiap perjalananmu.
+          Cari dan temukan kendaraan yang sesuai dengan kebutuhanmu.
+        </p>
+        <a href="#koleksi" class="button">Lihat Koleksi &rarr;</a>
+      </div>
+    </section>
+
+    <section class="collection section container" id="koleksi">
+      <div class="section-heading">
+        <div>
+          <p class="subtitle">OUR COLLECTION</p>
+          <h2>Koleksi Mobil</h2>
+          <p class="muted">Temukan mobil yang cocok untukmu.</p>
+        </div>
+        <span id="carCount">0 mobil</span>
+      </div>
+
+      <div class="filters">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Cari nama atau merek mobil..."
+          aria-label="Cari mobil"
+        >
+
+        <select id="brandFilter" aria-label="Filter merek mobil">
+          <option value="all">Semua Merek</option>
+        </select>
+
+        <select id="sortFilter" aria-label="Urutkan mobil">
+          <option value="default">Urutan Awal</option>
+          <option value="low">Harga Terendah</option>
+          <option value="high">Harga Tertinggi</option>
+          <option value="name">Nama A-Z</option>
+        </select>
+      </div>
+
+      <p id="apiStatus" class="status" role="status" aria-live="polite">
+        Memuat data mobil...
+      </p>
+
+      <div class="car-grid" id="carGrid"></div>
+
+      <div id="emptyState" class="message" hidden>
+        <h3>Mobil tidak ditemukan</h3>
+        <p>Coba kata kunci atau filter yang berbeda.</p>
+        <button class="button" id="emptyReset" type="button">Tampilkan Semua</button>
+      </div>
+
+      <div id="apiHelp" class="message" hidden>
+        <h3>Data mobil gagal dimuat</h3>
+        <p>Periksa koneksi internet atau alamat API.</p>
+        <button class="button" id="retryButton" type="button">Coba Lagi</button>
+      </div>
+    </section>
+
+    <section class="about section" id="tentang">
+      <div class="container">
+        <p class="subtitle">ABOUT DREAM CAR</p>
+        <h2>Mobil Impianmu, Perjalanan Barumu.</h2>
+        <p>
+          Dream Car membantu kamu menjelajahi pilihan kendaraan
+          dengan informasi yang jelas, tampilan sederhana, dan
+          pengalaman yang nyaman.
+        </p>
+        <a href="#koleksi" class="text-link">Jelajahi koleksi &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <a href="#beranda" class="logo">DREAM <span>CAR.</span></a>
+      <p>© <span id="currentYear"></span> Dream Car. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <dialog id="carDialog">
+    <button
+      id="dialogClose"
+      class="close-button"
+      type="button"
+      aria-label="Tutup detail"
+    >&times;</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
